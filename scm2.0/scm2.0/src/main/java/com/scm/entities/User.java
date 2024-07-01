@@ -10,7 +10,6 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -25,6 +24,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 public class User {
+
     @Id
     private String userId;
 
@@ -34,7 +34,6 @@ public class User {
     @Column(unique = true, nullable = false)
     private String email;
 
-    @Getter(AccessLevel.NONE)
     private String password;
 
     @Column(length = 1000)
@@ -45,20 +44,14 @@ public class User {
 
     private String phoneNumber;
 
-    @Getter(value = AccessLevel.NONE)
-    // information
     private boolean enabled = true;
 
     private boolean emailVerified = false;
     private boolean phoneVerified = false;
 
-    //  @Enumerated(value = EnumType.STRING)
-    // SELF, GOOGLE, FACEBOOK, TWITTER, LINKEDIN, GITHUB
-    private Providers providers = Providers.SELF;
+    private Providers provider = Providers.SELF;
     private String providerUserId;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Contact> contacts = new ArrayList<>();
-
 }
-
