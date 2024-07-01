@@ -24,6 +24,7 @@ public class PageController {
     }
 
     // about route
+
     @RequestMapping("/about")
     public String aboutPage(Model model) {
         model.addAttribute("isLogin", true);
@@ -32,6 +33,7 @@ public class PageController {
     }
 
     // services
+
     @RequestMapping("/services")
     public String servicesPage() {
         System.out.println("services page loading");
@@ -42,13 +44,19 @@ public class PageController {
 
     @GetMapping("/contact")
     public String contact() {
-        return new String("contact");
+        return "contact";
     }
 
     // this is showing login page
     @GetMapping("/login")
     public String login() {
-        return new String("login");
+        return "login";
     }
+
     // registration page
+    @GetMapping("/register")
+    public String register() {
+        return "register";
+    }
+
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
   lang="en"
-  th:replace="~{base :: parent}"
+  th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
 >
   <head>
     <title>About Page</title>
