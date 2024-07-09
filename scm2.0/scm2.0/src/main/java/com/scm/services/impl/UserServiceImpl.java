@@ -2,6 +2,7 @@ package com.scm.services.impl;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +24,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User saveUser(User user) {
-        return userRepo.save(user);
+         // user id : have to generate
+         String userId = UUID.randomUUID().toString();
+         user.setUserId(userId);
+         // password encode
+         // user.setPassword(userId);
+        //  user.setPassword(passwordEncoder.encode(user.getPassword()));
+         // set the user role
+        //  user.setRoleList(List.of(AppConstants.ROLE_USER));
+         logger.info(user.getProvider().toString());
+         return userRepo.save(user);
     }
 
     @Override
