@@ -18,9 +18,12 @@ public class SecurityConfig {
 
     @Autowired
     private SecurityCustomUserDetailService userDetailService;
+
+    @Autowired
+    private OAuthAuthenicationSuccessHandler handler;
+
     // @Bean
     // public UserDetailsService userDetailsService() {
-
     //     UserDetails user1 = User.withDefaultPasswordEncoder().username("ADMIN123").password("ADMIN@123").roles("ADMIN", "USER").build();
     //     UserDetails user2 = User.withUsername("USER123").password("USER@123").build();
     //     var inMemoryUserDetailsManager = new InMemoryUserDetailsManager(user1, user2);
@@ -82,12 +85,12 @@ public class SecurityConfig {
         });
 
         httpSecurity.csrf(AbstractHttpConfigurer::disable);
-        // oauth configurations
 
-        // httpSecurity.oauth2Login(oauth -> {
-        //     oauth.loginPage("/login");
-        //     oauth.successHandler(handler);
-        // });
+        // oauth configurations
+        httpSecurity.oauth2Login(oauth -> {
+            oauth.loginPage("/login");
+            oauth.successHandler(handler);
+        });
 
         httpSecurity.logout(logoutForm -> {
             logoutForm.logoutUrl("/do-logout");
