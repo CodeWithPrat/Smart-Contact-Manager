@@ -8,6 +8,7 @@ import com.scm.entities.Contact;
 import com.scm.entities.User;
 
 public interface ContactService {
+
     // save contacts
     Contact save(Contact contact);
 
@@ -18,11 +19,9 @@ public interface ContactService {
     List<Contact> getAll();
 
     // get contact by id
-
     Contact getById(String id);
 
     // delete contact
-
     void delete(String id);
 
     // search contact
@@ -30,7 +29,8 @@ public interface ContactService {
 
     Page<Contact> searchByEmail(String emailKeyword, int size, int page, String sortBy, String order, User user);
 
-    Page<Contact> searchByPhoneNumber(String phoneNumberKeyword, int size, int page, String sortBy, String order, User user);
+    Page<Contact> searchByPhoneNumber(String phoneNumberKeyword, int size, int page, String sortBy, String order,
+            User user);
 
     // get contacts by userId
     List<Contact> getByUserId(String userId);
