@@ -1,63 +1,63 @@
-// Log a message to the console to confirm the script has loaded
 console.log("Script loaded");
 
-// Get the current theme from localStorage or set to "light" if not available
+// change theme work
 let currentTheme = getTheme();
+//initial -->
 
-// Add an event listener to the DOMContentLoaded event to initialize the theme
 document.addEventListener("DOMContentLoaded", () => {
   changeTheme();
 });
 
-// Function to change the theme of the page
+//TODO:
 function changeTheme() {
-  // Apply the current theme to the page
+  //set to web page
+
   changePageTheme(currentTheme, "");
-  
-  // Get the theme change button from the DOM
+  //set the listener to change theme button
   const changeThemeButton = document.querySelector("#theme_change_button");
 
-  // Add an event listener to the button to handle theme changes on click
   changeThemeButton.addEventListener("click", (event) => {
-    // Store the old theme before changing
     let oldTheme = currentTheme;
-    console.log("Change theme button clicked");
-    
-    // Toggle the theme between "dark" and "light"
-    currentTheme = currentTheme === "dark" ? "light" : "dark";
+    console.log("change theme button clicked");
+    if (currentTheme === "dark") {
+      //theme ko light
+      currentTheme = "light";
+    } else {
+      //theme ko dark
+      currentTheme = "dark";
+    }
     console.log(currentTheme);
-    
-    // Apply the new theme to the page
     changePageTheme(currentTheme, oldTheme);
   });
 }
 
-// Function to save the current theme to localStorage
+//set theme to localstorage
 function setTheme(theme) {
   localStorage.setItem("theme", theme);
 }
 
-// Function to get the current theme from localStorage
+//get theme from localstorage
 function getTheme() {
   let theme = localStorage.getItem("theme");
-  return theme ? theme : "light"; // Default to "light" if no theme is set
+  return theme ? theme : "light";
 }
 
-// Function to change the page's theme
+//change current page theme
 function changePageTheme(theme, oldTheme) {
-  // Update the theme in localStorage
+  //localstorage mein update karenge
   setTheme(currentTheme);
+  //remove the current theme
 
-  // If there was an old theme, remove its class from the HTML element
   if (oldTheme) {
     document.querySelector("html").classList.remove(oldTheme);
   }
-
-  // Add the new theme class to the HTML element
+  //set the current theme
   document.querySelector("html").classList.add(theme);
 
-  // Update the text of the theme change button to reflect the new theme
+  // change the text of button
   document
     .querySelector("#theme_change_button")
     .querySelector("span").textContent = theme == "light" ? "Dark" : "Light";
 }
+
+//change page change theme

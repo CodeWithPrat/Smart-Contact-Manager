@@ -97,11 +97,9 @@ public class ContactController {
             String fileURL = imageService.uploadImage(contactForm.getContactImage(), filename);
             contact.setPicture(fileURL);
             contact.setCloudinaryImagePublicId(filename);
-
         }
         contactService.save(contact);
         System.out.println(contactForm);
-
         // 3 set the contact picture url
         // 4 `set message to be displayed on the view
         session.setAttribute("message",
@@ -109,9 +107,7 @@ public class ContactController {
                         .content("You have successfully added a new contact")
                         .type(MessageType.green)
                         .build());
-
         return "redirect:/user/contacts/add";
-
     }
 
     // view contacts
@@ -122,19 +118,13 @@ public class ContactController {
             @RequestParam(value = "sortBy", defaultValue = "name") String sortBy,
             @RequestParam(value = "direction", defaultValue = "asc") String direction, Model model,
             Authentication authentication) {
-
         // load all the user contacts
         String username = Helper.getEmailOfLoggedInUser(authentication);
-
         User user = userService.getUserByEmail(username);
-
         Page<Contact> pageContact = contactService.getByUser(user, page, size, sortBy, direction);
-
         model.addAttribute("pageContact", pageContact);
         model.addAttribute("pageSize", AppConstants.PAGE_SIZE);
-
         model.addAttribute("contactSearchForm", new ContactSearchForm());
-
         return "user/contacts";
     }
 
