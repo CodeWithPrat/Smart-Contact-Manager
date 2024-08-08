@@ -14,7 +14,7 @@ import com.scm.entities.User;
 import com.scm.helpers.AppConstants;
 import com.scm.helpers.Helper;
 import com.scm.helpers.ResourceNotFoundException;
-import com.scm.repositories.UserRepo;
+import com.scm.repsitories.UserRepo;
 import com.scm.services.EmailService;
 import com.scm.services.UserService;
 
@@ -42,6 +42,7 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         // set the user role
+
         user.setRoleList(List.of(AppConstants.ROLE_USER));
 
         logger.info(user.getProvider().toString());

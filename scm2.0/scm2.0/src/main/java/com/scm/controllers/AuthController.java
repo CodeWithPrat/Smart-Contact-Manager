@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.scm.entities.User;
 import com.scm.helpers.Message;
 import com.scm.helpers.MessageType;
-import com.scm.repositories.UserRepo;
+import com.scm.repsitories.UserRepo;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -18,6 +18,7 @@ import jakarta.servlet.http.HttpSession;
 public class AuthController {
 
     // verify email
+
     @Autowired
     private UserRepo userRepo;
 

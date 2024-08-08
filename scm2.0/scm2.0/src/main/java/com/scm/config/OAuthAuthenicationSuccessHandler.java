@@ -1,7 +1,6 @@
 package com.scm.config;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.UUID;
 
 import org.slf4j.Logger;
@@ -13,11 +12,11 @@ import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
-
+import java.util.List;
 import com.scm.entities.Providers;
 import com.scm.entities.User;
 import com.scm.helpers.AppConstants;
-import com.scm.repositories.UserRepo;
+import com.scm.repsitories.UserRepo;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -80,7 +79,7 @@ public class OAuthAuthenicationSuccessHandler implements AuthenticationSuccessHa
                     : oauthUser.getAttribute("login").toString() + "@gmail.com";
             String picture = oauthUser.getAttribute("avatar_url").toString();
             String name = oauthUser.getAttribute("login").toString();
-            String providerUserId = oauthUser.getName(); 
+            String providerUserId = oauthUser.getName();
 
             user.setEmail(email);
             user.setProfilePic(picture);

@@ -25,6 +25,7 @@ public class RootController {
             return;
         }
         System.out.println("Adding logged in user information to the model");
+        ;
         String username = Helper.getEmailOfLoggedInUser(authentication);
         logger.info("User logged in: {}", username);
         // database se data ko fetch : get user from db :

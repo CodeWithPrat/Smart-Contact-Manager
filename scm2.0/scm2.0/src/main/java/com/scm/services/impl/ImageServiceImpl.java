@@ -2,6 +2,7 @@ package com.scm.services.impl;
 
 import java.io.IOException;
 
+import java.util.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,6 +25,7 @@ public class ImageServiceImpl implements ImageService {
     public String uploadImage(MultipartFile contactImage, String filename) {
 
         // code likhnaa hia jo image ko upload kar rha ho
+
         try {
             byte[] data = new byte[contactImage.getInputStream().available()];
             contactImage.getInputStream().read(data);
@@ -37,6 +39,7 @@ public class ImageServiceImpl implements ImageService {
         }
 
         // and return raha hoga : url
+
     }
 
     @Override

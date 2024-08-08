@@ -14,6 +14,7 @@ import com.scm.services.ContactService;
 public class ApiController {
 
     // get contact
+
     @Autowired
     private ContactService contactService;
 

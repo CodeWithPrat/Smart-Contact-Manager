@@ -1,8 +1,6 @@
 package com.scm.services.impl;
 
-import java.util.List;
-import java.util.UUID;
-
+import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,11 +10,13 @@ import org.springframework.stereotype.Service;
 import com.scm.entities.Contact;
 import com.scm.entities.User;
 import com.scm.helpers.ResourceNotFoundException;
-import com.scm.repositories.ContactRepo;
+import com.scm.repsitories.ContactRepo;
 import com.scm.services.ContactService;
 
 @Service
-public class ContactServiceImpl implements ContactService {
+public class ContactServiceImpl implements ContactService
+
+{
 
     @Autowired
     private ContactRepo contactRepo;

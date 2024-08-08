@@ -1,7 +1,6 @@
 package com.scm.entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

@@ -3,12 +3,12 @@ package com.scm.services;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import com.scm.entities.Contact;
 import com.scm.entities.User;
 
 public interface ContactService {
-
     // save contacts
     Contact save(Contact contact);
 
@@ -19,9 +19,11 @@ public interface ContactService {
     List<Contact> getAll();
 
     // get contact by id
+
     Contact getById(String id);
 
     // delete contact
+
     void delete(String id);
 
     // search contact
